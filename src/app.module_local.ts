@@ -36,11 +36,11 @@ import { AlbumMusicianModule } from './albummusician/albummusician.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.DATABASE_URL && process.env.DATABASE_URL.replace('postgres://','').split(':')[1].split('@')[1] || process.env.DATABASE_URL || process.env.DB_HOST || 'ec2-34-202-127-5.compute-1.amazonaws.com',
+      host: process.env.DATABASE_URL && process.env.DATABASE_URL.replace('postgres://','').split(':')[1].split('@')[1] || process.env.DATABASE_URL || process.env.DB_HOST || 'localhost',
       port: 5432,
-      username: process.env.DATABASE_URL && process.env.DATABASE_URL.replace('postgres://','').split(':')[0] || process.env.DB_USER || 'kuyhyxvdzrpet',
-      password: process.env.DATABASE_URL && process.env.DATABASE_URL.replace('postgres://','').split(':')[1].split('@')[0] || process.env.DB_PASSWORD || 'e87bb1e362686c33d8ca20cc7efe96fa952e2e4014f3eb43dcca80556290f19e',
-      database: process.env.DATABASE_URL && process.env.DATABASE_URL.split('/')[3] || process.env.DB_NAME || 'dfk1jp3l196po2',
+      username: process.env.DATABASE_URL && process.env.DATABASE_URL.replace('postgres://','').split(':')[0] || process.env.DB_USER || 'postgres',
+      password: process.env.DATABASE_URL && process.env.DATABASE_URL.replace('postgres://','').split(':')[1].split('@')[0] || process.env.DB_PASSWORD || 'postgres',
+      database: process.env.DATABASE_URL && process.env.DATABASE_URL.split('/')[3] || process.env.DB_NAME || 'vinyls',
       entities: [Album, CollectorAlbum, Band, Collector, Comment, Musician, Performer, PerformerPrize, Prize, Track,],
       dropSchema: false,
       synchronize: true,
